@@ -3,7 +3,7 @@ This repository contains animation of Bold Head Island and scripts for creating 
 The animation is in the form of reveal.js presentation which runs in a web browser. We use Raspberry Pie computer to run it.
 
 ## Setup
-<img src="https://github.com/petrasovaa/BH-Island-animation/blob/master/img/setup.JPG" alt="setup" style="width: 100px;"/>
+<img src=img/setup.JPG width=400/>
 
 1. Connect the computer with the projector and plug in the computer and the projector in a power plug. Switch on the projector. Plug in mouse.
 2. The operating system will boot and then the desktop appears. Open the directory `presentation` on the desktop and double-click on `island.html`. A browser window appears.
