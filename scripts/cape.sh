@@ -37,8 +37,8 @@ do
     #d.vect map=shoreline_2014_seg color=98:85:36 width=3 --q
     d.vect map=transportation@PERMANENT where="highway = 'path'" width=2 color=50:50:50 --q
     d.vect map=transportation@PERMANENT where="highway <> 'path'" color=94:94:94 width=1 --q
-    d.vect map=buildings color=none fill_color=77:77:77 width=1 --q
-    d.barscale -f style=solid at=1,6 bgcolor=none fontsize=30 color=50:50:50 --q
+    d.vect map=buildings width=1 --q
+    d.barscale -f style=solid at=1,6 bgcolor=none fontsize=25 color=50:50:50 --q
     d.text text="$T" at=55,3 color=50:50:50 --q
     d.legend raster=elev_feet labelnum=6 at=10,40,3.5,8 range=0,50 fontsize=20 color=50:50:50
     d.text at=3.5,45 color=50:50:50 --q size=3 << EOF
