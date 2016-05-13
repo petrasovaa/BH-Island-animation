@@ -1,5 +1,7 @@
 # BH Island animation
-This repository contains animation of Bold Head Island and scripts for creating the animation.
+This repository contains animation of Bold Head Island and scripts for creating the animation. 
+[Data are available here.](http://fatra.cnr.ncsu.edu/baldhead/BH_Island.zip)
+
 The animation is in the form of reveal.js presentation which runs in a web browser. We use Raspberry Pie computer to run it.
 
 The 3D model is a digital elevation model (bare earth) of BH Island for 2014. The dashed line symbolizes the coastline from 2014 data. The model is 10 vertically exaggerated. The roads and houses are from 2015.
