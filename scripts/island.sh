@@ -18,13 +18,15 @@ do
    echo "L 1 1 $S $(($S + $D))" >> seg_tmp.txt
    S=$(($S + $DD))
 done
-v.segment --o input=shoreline_2014_cat output=shoreline_2014_seg rules=seg_tmp.txt
+v.segment --o input=shoreline_2018 output=shoreline_2018_seg rules=seg_tmp.txt
 
 rm *.png
 rm *.gif
 #for E in elevation_1997 #`g.list type=raster mapset=elevation_timeseries exc="*ground"`
 #for E in `g.list type=raster mapset=elevation_timeseries exc="*ground"`
-for E in `g.list type=raster pattern="coast*"` `g.list type=raster mapset=elevation_timeseries exc="*_*_*"`
+#for E in `g.list type=raster pattern="coast*"` `g.list type=raster mapset=elevation_timeseries exc="*_*_*"`
+for E in `g.list type=raster pattern="coast*"` elevation_1997 elevation_1998 elevation_1999 elevation_2000 elevation_2001 elevation_2004 elevation_2005  elevation_2010_ground elevation_2014_ground elevation_2016_ground elevation_2017_ground elevation_2018_ground
+
 
 do
     r.mapcalc "new = if($E > 0.01, 1, 0)" --o --q
@@ -37,7 +39,7 @@ EOF
     ST="`python -c """print '$T'.replace(' - ', '_') if '-' in '$T' else '$T'"""`"
     d.rast new
     d.vect map=shoreline_${ST} color=98:85:36 width=3 --q
-    d.vect map=shoreline_2014_seg color=98:85:36 width=3 --q
+    d.vect map=shoreline_2018_seg color=98:85:36 width=3 --q
     d.vect map=transportation@PERMANENT where="highway = 'path'" width=2 color=50:50:50 --q
     d.vect map=transportation@PERMANENT where="highway <> 'path'" color=94:94:94 width=1 --q
     d.vect map=buildings color=none fill_color=77:77:77 width=1 --q
