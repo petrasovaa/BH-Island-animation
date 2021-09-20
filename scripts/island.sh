@@ -1,11 +1,11 @@
 #!/bin/bash
 export GRASS_RENDER_IMMEDIATE=cairo
 export GRASS_RENDER_WIDTH=1500
-export GRASS_RENDER_HEIGHT=1183
+export GRASS_RENDER_HEIGHT=1057 #1183
 export GRASS_RENDER_FILE_READ=TRUE
 export GRASS_FONT=/usr/share/fonts/truetype/freefont/FreeSansBold.ttf
 
-g.region raster=elevation_1997 res=2 -a
+g.region raster=elevation_2018_ground res=2 -a
 
 # create dashed line
 D=50
@@ -29,7 +29,7 @@ for E in `g.list type=raster pattern="coast*"` elevation_1997 elevation_1998 ele
 
 
 do
-    r.mapcalc "new = if($E > 0.01, 1, 0)" --o --q
+    r.mapcalc "new = if(isnull($E), 0, if($E > 0.01, 1, 0))" --o --q
     r.colors new --q rules=- <<EOF
 0 130:220:235
 1 239:198:42
